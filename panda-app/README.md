@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+## Inlight Panda Rescue™
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Introduction
 
-## Available Scripts
+Inlight Panda Rescue™ recently launched their latest campaign and have taken a respectable number of donations but would
+like to increase their conversions further. They'd like to experiment with displaying previous donations on the website
+to see whether this encourages others to donate as well.
 
-In the project directory, you can run:
+Donations are currently collected through a third party system which provides data exports via a simple API. There are
+two endpoints for this data:
 
-### `yarn start`
+- https://inlight-panda-rescue-api.herokuapp.com/donors?apiKey=cr2eJJDmDK94NgbaPL8Z
+- https://inlight-panda-rescue-api.herokuapp.com/donations?apiKey=cr2eJJDmDK94NgbaPL8Z
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Your job will be to expose this data on the website to encourage other users to donate.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Requirements
 
-### `yarn test`
+Inlight Panda Rescue™ would like to display a running total of donations next to the donate button and have this update
+every few seconds. They'd also like a link through to a new page which lists out all previous donations.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Since there have been a large number of donations already, they'd like the donations on this page to be paginated and
+would also like them to be filterable by state.
 
-### `yarn build`
+Our designers have put together a mockup of how they'd like this to look:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Image](mockup.jpg?raw=true)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Considerations
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Some donors have opted for their donation to not be made public, these donations shouldn't be listed on the site, but
+  they should contribute to the donations total.
+- Calls to the API are quite computationally expensive (the donation system is old) so we've been asked to keep requests
+  to a minimum.
 
-### `yarn eject`
+### Budget
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Since this is a not-for-profit client, the budget is pretty tight. You've got 3 hours to put together the best solution
+possible.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The project is built using React so you'll need to ensure you have NodeJS and Yarn installed. With both of those
+installed you can simply run these commands to get started:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+$ yarn
+$ yarn start
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Please create a new branch to manage your changes and ensure your changes are pushed to GitHub by the end of the task.
