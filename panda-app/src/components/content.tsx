@@ -24,7 +24,7 @@ type Props = {
 const Content: React.FC<Props> = (props) => {
   return (
     <>
-      <Wrapper>
+      <Wrapper data-testid="content">
         <h1>There are only 1,800 Giant Pandas remaining in the wild</h1>
         <p className="lead">
           Help us to save this beautiful animal by donating now.

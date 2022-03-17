@@ -30,7 +30,7 @@ interface ErrProp {
     error: string
 }
 
-const isoToDMY: (isoDate: string) => string = (isoDate: string) => {
+export const isoToDMY: (isoDate: string) => string = (isoDate: string) => {
     const formattedDate = isoDate.replace(/T.*/, '').split('-').reverse().join('/')
     return formattedDate;
 }
@@ -40,13 +40,13 @@ const getTableHTML: (arg0: DonationEntry[]) => JSX.Element = (dataset: DonationE
         return <tr key={i}><td>{isoToDMY(item.date)}</td><td>{item.donor}</td><td>${item.amount}</td></tr>
     })
 
-    return <StyledTable><tbody><tr><th>Date</th><th>Donor ID</th><th>Amount</th></tr>{listNodes}</tbody></StyledTable>;
+    return <><h3>Donation History</h3><StyledTable><tbody><tr><th>Date</th><th>Donor ID</th><th>Amount</th></tr>{listNodes}</tbody></StyledTable></>;;
 }
 
 const Table: React.FC<TableProps> = (props) => {
     //unsure about implementation of props as x to avoid type error
     if (props.hasOwnProperty('error')) {
-        return (<h2>The following error has occurred: {(props as ErrProp).error}</h2>)
+        return (<h2 data-testid="error-msg">The following error has occurred: {(props as ErrProp).error}</h2>)
     } else {
         const tableHTML = getTableHTML((props as DataProp).data);
         return (tableHTML)

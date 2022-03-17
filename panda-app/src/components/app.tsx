@@ -6,15 +6,7 @@ import Hero from './hero';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-type TableState = {
-  loading: true,
-} | {
-  loading: false,
-  data: DonationEntry[]
-} | {
-  loading: false,
-  error: string
-}
+import { TableState } from '../types/types';
 
 type Action =
   | { type: 'success', dataset: DonationEntry[] }
