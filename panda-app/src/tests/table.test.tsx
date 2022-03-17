@@ -1,10 +1,6 @@
-/* eslint-disable testing-library/no-node-access */
-/* eslint-disable testing-library/no-container */
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-
 import Table from '../components/table';
-
 import { TableProps } from '../types/types';
 
 const testTable: TableProps = {
@@ -18,14 +14,9 @@ const testTable: TableProps = {
 }
 
 it('renders data with no error displayed', () => {
-    const { container } = render(<Table {...testTable} />)
-    screen.getByRole('table')
+    render(<Table {...testTable} />)
     expect(screen.getByText('Donation History')).toBeInTheDocument();
-    expect(container.querySelector(`.table`)).toBeInTheDocument();
-    expect(container.querySelector(`.table__row`)).toBeInTheDocument()
-    expect(container.querySelector(`.table__header-row`)).toBeInTheDocument()
-    expect(container.querySelector(`.table__body`)).toBeInTheDocument()
-    expect(container.querySelector(`.table__title`)).toBeInTheDocument()
-    //no error displayed
-    expect(container.querySelector(`.err-message`)).not.toBeInTheDocument()
+    expect(screen.getByText('$255')).toBeInTheDocument();
+    expect(screen.getByText('12345')).toBeInTheDocument();
+    expect(screen.getByText('28/02/2022')).toBeInTheDocument();
 })
