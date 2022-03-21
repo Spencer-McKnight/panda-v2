@@ -15,3 +15,7 @@ export type TableState = {
     loading: false,
     error: string
   }
+
+export type Action =
+| { type: 'success', dataset: DonationEntry[] }
+| { type: 'failure', errorMsg: string }

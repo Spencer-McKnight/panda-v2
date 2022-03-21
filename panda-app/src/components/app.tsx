@@ -6,40 +6,20 @@ import Hero from './hero';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { TableState } from '../types/types';
-
-type Action =
-  | { type: 'success', dataset: DonationEntry[] }
-  | { type: 'failure', errorMsg: string }
-
-const isDisplayed: (arg0: DonationEntry) => boolean = (value: DonationEntry) => {
-  return value.isPublic === true;
-}
+import { TableState, Action } from '../types/types';
+import { fetchData } from 'utils/fetchData';
+import { filterData } from 'utils/filterData';
 
 const reducer: (arg0: TableState, arg1: Action) => TableState = (state: TableState, action: Action) => {
   switch (action.type) {
     case action.type = "success":
-      const filterData: DonationEntry[] = action.dataset.filter(isDisplayed)
-      return { loading: false, data: filterData }
+      const newData = filterData(action.dataset);
+      return { loading: false, data: newData }
     case action.type = "failure":
       return { loading: false, error: action.errorMsg }
     default:
       return state;
   }
-}
-
-const fetchData: () => Promise<Action> = () => {
-  return fetch("https://inlight-panda-rescue-api.herokuapp.com/donations?apiKey=cr2eJJDmDK94NgbaPL8Z")
-    .then(res => res.json())
-    .then((result) => {
-      if (result.hasOwnProperty("error")) {
-        const failObj: Action = { type: "failure", errorMsg: result.error };
-        return failObj
-      } else {
-        const doneObj: Action = { type: "success", dataset: result };
-        return doneObj;
-      }
-    })
 }
 
 const App: React.FC = () => {
@@ -51,23 +31,13 @@ const App: React.FC = () => {
     });
   }, [])
 
-  if (state.loading) {
-    return (
-      <div className="container">
-        <Header />
-        <Hero altText='Giant Panda 🐼' />
-        <h1>Loading...</h1>
-      </div>
-    )
-  } else {
-    return (
-      <div className="container">
-        <Header />
-        <Hero altText='Giant Panda 🐼' />
-        <Content {...state} />
-      </div>
-    )
-  }
+  return (
+    <div className="container">
+      <Header />
+      <Hero altText='Giant Panda 🐼' />
+      {state.loading ? <h1>Loading...</h1> : <Content {...state} />}
+    </div>
+  )
 };
 
 export default App;

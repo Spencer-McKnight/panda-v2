@@ -40,7 +40,7 @@ const getTableHTML: (arg0: DonationEntry[]) => JSX.Element = (dataset: DonationE
         return <tr key={i}><td>{isoToDMY(item.date)}</td><td>{item.donor}</td><td>${item.amount}</td></tr>
     })
 
-    return <><h3>Donation History</h3><StyledTable><tbody><tr><th>Date</th><th>Donor ID</th><th>Amount</th></tr>{listNodes}</tbody></StyledTable></>;;
+    return <div data-testid="table"><h3>Donation History</h3><StyledTable><tbody><tr><th>Date</th><th>Donor ID</th><th>Amount</th></tr>{listNodes}</tbody></StyledTable></div>;;
 }
 
 const Table: React.FC<TableProps> = (props) => {
