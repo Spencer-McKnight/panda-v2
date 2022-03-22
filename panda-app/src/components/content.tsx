@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Table from './table'
+import { TableProps } from 'types/types';
 
 const Divider = styled.hr`
   border-top: '2px solid #EBEBEB';
@@ -13,18 +14,10 @@ const Wrapper = styled.div`
   padding: '50px';
 `;
 
-type Props = {
-  loading: false,
-  data: DonationEntry[]
-} | {
-  loading: false,
-  error: string
-}
-
-const Content: React.FC<Props> = (props) => {
+const Content: React.FC<TableProps> = (props) => {
   return (
     <>
-      <Wrapper>
+      <Wrapper data-testid="content">
         <h1>There are only 1,800 Giant Pandas remaining in the wild</h1>
         <p className="lead">
           Help us to save this beautiful animal by donating now.

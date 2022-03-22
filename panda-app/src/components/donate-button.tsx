@@ -7,7 +7,7 @@ type Button = {
   target?: string,
 }
 
-interface Props {
+export type Props = {
   button: Button,
   text: string,
 }
