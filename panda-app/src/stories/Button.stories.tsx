@@ -11,7 +11,7 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-const button = { link: "#", class: "test-class" }
+const button = { link: "#", class: "btn btn-info" }
 
 const buttonProps: Props = {
     button: button,
