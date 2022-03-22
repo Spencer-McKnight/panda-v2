@@ -20,13 +20,21 @@ const donePromise: Promise<Action> = new Promise(() => { return { type: "success
 const failPromise: Promise<Action> = new Promise(() => { return { type: "failure", errorMsg: testFetchError } });
 
 it('returns successful and data when data is retrieved', () => {
-    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(new Promise(() => { return testFetchObj }));
+    const fetchMock = jest.spyOn(global, "fetch").mockImplementation(jest.fn(() =>
+        Promise.resolve({
+            json: () =>
+                Promise.resolve(testFetchObj)
+        } as Response)))
     expect(fetchData()).toEqual(donePromise);
     fetchMock.mockRestore();
 })
 
 it('returns failure and error type when data is retrieved', () => {
-    const fetchMock = jest.spyOn(global, 'fetch').mockResolvedValue(new Promise(() => { return testFetchError }));
+    const fetchMock = jest.spyOn(global, "fetch").mockImplementation(jest.fn(() =>
+        Promise.resolve({
+            json: () =>
+                Promise.resolve(testFetchError)
+        } as Response)))
     expect(fetchData()).toEqual(failPromise);
     fetchMock.mockRestore();
 })
