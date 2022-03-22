@@ -1,6 +1,6 @@
 import { Action } from "types/types";
 
-export const fetchData: () => Promise<Action> = () => {
+const fetchData: () => Promise<Action> = () => {
     return fetch("https://inlight-panda-rescue-api.herokuapp.com/donations?apiKey=cr2eJJDmDK94NgbaPL8Z")
         .then(res => res.json())
         .then((result) => {
@@ -13,3 +13,5 @@ export const fetchData: () => Promise<Action> = () => {
             }
         })
 }
+
+export default fetchData;

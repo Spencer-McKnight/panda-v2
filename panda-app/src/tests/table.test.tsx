@@ -22,21 +22,6 @@ const testTable: TableProps = {
         date: "2022-03-28T16:51:31.953Z",
         donor: 12347,
         isPublic: true
-    }, {
-        amount: "10",
-        date: "2022-04-28T16:51:31.953Z",
-        donor: 12348,
-        isPublic: true
-    }, {
-        amount: "40",
-        date: "2022-05-28T16:51:31.953Z",
-        donor: 12349,
-        isPublic: true
-    }, {
-        amount: "1300",
-        date: "2022-06-28T16:51:31.953Z",
-        donor: 12340,
-        isPublic: true
     }
     ]
 }

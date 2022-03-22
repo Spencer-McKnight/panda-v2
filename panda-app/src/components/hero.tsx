@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import heroImage from '../images/hero.jpg';
 
 const Image = styled.img`
   width: 100%;
 `;
 
-type Props = {
+export type Props = {
+  imgSrc: string,
   altText: string,
 }
 
-const Hero: React.FC<Props> = ({ altText }) => (
+const Hero: React.FC<Props> = ({ imgSrc, altText }) => (
   <div>
-    <Image src={heroImage} alt={altText} />
+    <Image src={imgSrc} alt={altText} />
   </div>
 );
 

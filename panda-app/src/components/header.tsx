@@ -22,9 +22,8 @@ const NavBar = styled.nav`
   }
 `;
 
-
 const Header = () => (
-  <NavBar className='navbar navbar-dark bg-dark'>
+  <NavBar data-testid="header" className='navbar navbar-dark bg-dark'>
     <LogoContainer>
       <Logo text={"Panda Rescue ™"} />
     </LogoContainer>

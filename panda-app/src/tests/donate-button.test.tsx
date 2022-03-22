@@ -12,5 +12,5 @@ const testButtonProps: Props = {
 
 it("renders with no erors", () => {
     render(<DonateButton {...testButtonProps} />);
-    expect(screen.getByText('Test Button')).toBeInTheDocument();
+    expect(screen.getByText(testButtonProps.text)).toBeInTheDocument();
 })

@@ -1,4 +1,4 @@
-export const filterData: (arg0: DonationEntry[]) => DonationEntry[] = (array: DonationEntry[]) => {
+const filterData: (arg0: DonationEntry[]) => DonationEntry[] = (array: DonationEntry[]) => {
     const isDisplayed: (arg0: DonationEntry) => boolean = (value: DonationEntry) => {
         return value.isPublic === true;
     }
@@ -7,3 +7,5 @@ export const filterData: (arg0: DonationEntry[]) => DonationEntry[] = (array: Do
 
     return publicArray;
 }
+
+export default filterData;

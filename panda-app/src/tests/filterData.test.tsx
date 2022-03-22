@@ -1,4 +1,4 @@
-import { filterData } from "utils/filterData";
+import filterData from "utils/filterData";
 
 const testTable: DonationEntry[] =
     [{
