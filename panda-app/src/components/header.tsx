@@ -27,7 +27,7 @@ const Header = () => (
     <LogoContainer>
       <Logo text={"Panda Rescue ™"} />
     </LogoContainer>
-    <DonateButton button={{ link: "https://www.givenow.com.au/", class: "btn btn-info", rel: "noopener noreferrer", target: "_blank" }} text="Donate Now!" />
+    <DonateButton button={{ link: "https://www.givenow.com.au/", class: "btn btn-info", rel: "noopener noreferrer", target: "_blank" }} text="Donate Now!" space='6px' color='rgb(66, 153, 225)' border='rgb(63, 150, 220)' />
   </NavBar>
 );
 

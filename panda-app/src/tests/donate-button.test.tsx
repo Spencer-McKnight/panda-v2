@@ -3,11 +3,14 @@ import { Props } from "components/donate-button";
 import DonateButton from "components/donate-button";
 import { render, screen } from '@testing-library/react';
 
-const testButton = { link: "#", class: "test-class" }
+const testButton = { link: "#", class: "test-class", disabled: false }
 
 const testButtonProps: Props = {
     button: testButton,
-    text: "Test Button"
+    text: "Test Button",
+    space: "6px",
+    color: "#ff3399",
+    border: "#ff3399",
 }
 
 it("renders with no erors", () => {
